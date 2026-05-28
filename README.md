@@ -18,3 +18,7 @@ then to make a section, chapter, subsection or paragraph:
 \weedsubsection ... % subsection
 \weedspecial[<level>]{<topic>}   % paragraph
 ```
+
+# demo
+
+you only really need the .sty file, but the main.tex file gives an example of the usage of this .sty file
