@@ -1,0 +1,45 @@
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+
+% Core packages
+\usepackage{amsmath,amssymb}
+\usepackage{tikz-cd}
+\usepackage{multicol}
+\usepackage{weedtopics}
+
+% Paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1\baselineskip}
+
+\title{Untitled}
+\author{Author Name}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+Use \verb|\weedsection[1]{Title}|, \verb|\weedsection[2]{Title}|, or
+\verb|\weedsection[3]{Title}| to mark tangential sections. The portable package
+also provides \verb|\weedsubsection|, \verb|\weedchapter|, and
+\verb|\weedspecial[<level>]{<topic>}|.
+
+\weedsection[1]{Slightly Tangential Topic}
+
+This heading is marked as slightly in the weeds.
+
+\weedsection[2]{More Technical Digression}
+
+This heading is marked as in the weeds.
+
+\weedsection[3]{Deep Implementation Detail}
+
+This heading is marked as deep in the weeds.
+
+\printindex
+
+\end{document}
+
