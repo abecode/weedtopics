@@ -1,0 +1,118 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{weedtopics}[2026/05/20 Portable special-topic weed indicators]
+
+% Dependencies. xparse gives modern command definitions with optional
+% arguments; TikZ draws the leaf; makeidx provides \index and \printindex.
+\RequirePackage{xparse}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{makeidx}
+
+% Package option: indexing is on by default, but users can write
+% \usepackage[noindex]{weedtopics} if they only want the visual markers.
+\newif\ifweedtopicsindex
+\weedtopicsindextrue
+\DeclareOption{index}{\weedtopicsindextrue}
+\DeclareOption{noindex}{\weedtopicsindexfalse}
+\ProcessOptions\relax
+
+\definecolor{weedtopicsgreen}{HTML}{2E8B57}
+
+% Prepare LaTeX's index machinery unless disabled. The guard avoids calling
+% \makeindex again if the document already did so before loading this package.
+\ifweedtopicsindex
+  \makeatletter
+  \@ifundefined{@indexfile}{\makeindex}{}%
+  \makeatother
+\fi
+
+% A single inline leaf. \DeclareRobustCommand makes it safer in moving
+% arguments such as section titles, table-of-contents entries, and index labels.
+\DeclareRobustCommand{\weedtopicsleaf}{%
+  \tikz[baseline=-0.55ex, scale=0.12]{%
+    \fill[weedtopicsgreen!88!black]
+      (0,0) -- (-0.18,1.05) -- (0,1.42) -- (0.18,1.05) -- cycle;
+    \foreach \leafangle in {-55,-32,32,55}{%
+      \begin{scope}[rotate=\leafangle]
+        \fill[weedtopicsgreen]
+          (0,0) .. controls (-0.30,0.50) and (-0.28,1.05) .. (0,1.28)
+                .. controls (0.28,1.05) and (0.30,0.50) .. (0,0);
+        \draw[weedtopicsgreen!45!black, line width=0.24pt]
+          (0,0.08) -- (0,1.08);
+      \end{scope}%
+    }%
+    \foreach \leafangle/\leafshift in {-92/-0.08,92/0.08}{%
+      \begin{scope}[shift={(\leafshift,-0.04)}, rotate=\leafangle, scale=0.72]
+        \fill[weedtopicsgreen!92!black]
+          (0,0) .. controls (-0.22,0.34) and (-0.20,0.72) .. (0,0.88)
+                .. controls (0.20,0.72) and (0.22,0.34) .. (0,0);
+        \draw[weedtopicsgreen!45!black, line width=0.22pt]
+          (0,0.07) -- (0,0.72);
+      \end{scope}%
+    }%
+    \fill[weedtopicsgreen!95!black]
+      (0,0) .. controls (-0.34,0.68) and (-0.18,1.38) .. (0,1.70)
+            .. controls (0.18,1.38) and (0.34,0.68) .. (0,0);
+    \draw[weedtopicsgreen!45!black, line width=0.35pt]
+      (0,-0.16) -- (0,1.45);
+  }%
+}
+
+% Print N leaves. This small loop uses lower-level TeX integer machinery:
+% \count0 stores the current count, \advance increments it, and
+% \loop ... \repeat repeats until the requested number of leaves is printed.
+\DeclareRobustCommand{\weedtopicsicons}[1]{%
+  \begingroup
+  \count0=0
+  \loop\ifnum\count0<#1
+    \advance\count0 by 1
+    \weedtopicsleaf\kern0.08em
+  \repeat
+  \endgroup
+}
+
+% Plain-text labels for the three levels. These are useful as readable text
+% and as stable sort keys for the index.
+\newcommand{\weedtopicslabel}[1]{%
+  \ifcase#1\relax
+  \or slightly in the weeds%
+  \or in the weeds%
+  \else deep in the weeds%
+  \fi
+}
+
+% Display form for index group labels: leaves plus the plain-text label.
+\DeclareRobustCommand{\weedtopicsindexlabel}[1]{%
+  \weedtopicsicons{#1}\space\weedtopicslabel{#1}%
+}
+
+% Core marker. It prints the leaves and, when indexing is enabled, writes an
+% index entry under Special topics. The makeindex @ syntax means: sort by the
+% plain label on the left, but display the prettier label on the right.
+\NewDocumentCommand{\weedmark}{O{1} m}{%
+  \texorpdfstring{\protect\weedtopicsicons{#1}}{[#1 weed leaves]}%
+  \ifweedtopicsindex
+    \index{Special topics!\weedtopicslabel{#1}@\protect\weedtopicsindexlabel{#1}!#2}%
+  \fi
+}
+
+% Convenience wrappers around LaTeX headings. The optional heading argument is
+% what appears in the table of contents; the required argument is printed in the
+% document body. Both include the visual marker.
+\NewDocumentCommand{\weedsection}{O{1} m}{%
+  \section[#2 \texorpdfstring{\weedtopicsicons{#1}}{[#1 weed leaves]}]{#2 \weedmark[#1]{#2}}%
+}
+
+\NewDocumentCommand{\weedsubsection}{O{1} m}{%
+  \subsection[#2 \texorpdfstring{\weedtopicsicons{#1}}{[#1 weed leaves]}]{#2 \weedmark[#1]{#2}}%
+}
+
+\NewDocumentCommand{\weedchapter}{O{1} m}{%
+  \chapter[#2 \texorpdfstring{\weedtopicsicons{#1}}{[#1 weed leaves]}]{#2 \weedmark[#1]{#2}}%
+}
+
+% Inline/block-style callout for special topics that are not full headings.
+\NewDocumentCommand{\weedspecial}{O{1} m}{%
+  \par\smallskip\noindent\weedmark[#1]{#2}\textbf{#2}\par\smallskip
+}
