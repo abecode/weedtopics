@@ -21,4 +21,27 @@ then to make a section, chapter, subsection or paragraph:
 
 # demo
 
-you only really need the .sty file, but the main.tex file gives an example of the usage of this .sty file
+You only really need the .sty file, but the main.tex file gives an example of the usage of this .sty file
+
+# LyX
+
+To include this .sty file in Lyx, you can use the weedtopics.module.
+
+To install it, put it in the Lyx layouts folder
+
+- Windows: C:\Users\<username>\AppData\Roaming\LyX<version>\layouts\
+- Mac: ~/Library/Application Support/LyX<version>/layouts/
+- Linux: ~/.lyx/layouts/
+
+Then reconfigure LyX: In the LyX top menu, go to Tools ➔ Reconfigure.
+
+Then restart LyX.
+
+Then activate the module
+- Open Settings: Go to Document ➔ Settings from the top menu bar.
+- Navigate to Modules: Click on the Modules tab on the left-hand panel.
+- Select and Add: Find your module in the Available list, click on it,
+  and click the Add button to shift it to the "Selected" list.
+- Save Changes: Click OK to apply the module to the current
+  document. You can also click Save as Document Defaults if you want
+  it enabled for all future files
