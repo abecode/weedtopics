@@ -12,8 +12,8 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1\baselineskip}
 
-\title{Untitled}
-\author{Author Name}
+\title{Weedtopics Demo}
+\author{Abe Kazemzadeh}
 \date{\today}
 
 \begin{document}
@@ -22,10 +22,24 @@
 
 \section{Introduction}
 
+This is a LaTeX package that provides labels for chapters, sections, subsections, and topic headings
+that are "in the weeds", a.k.a. tangential, off-topic, or esoteric.  For example, if you were making 
+a textbook, you may want students to skip certain sections unless they were curious.
+
+Thanks to OpenAI Prism \LaTeX{} vibe-coding and research application.
+
 Use \verb|\weedsection[1]{Title}|, \verb|\weedsection[2]{Title}|, or
 \verb|\weedsection[3]{Title}| to mark tangential sections. The portable package
 also provides \verb|\weedsubsection|, \verb|\weedchapter|, and
 \verb|\weedspecial[<level>]{<topic>}|.
+
+You can also use these one-argument shortcuts:
+\begin{itemize}
+  \item Sections: \verb|\weedysection|, \verb|\weediersection|, and \verb|\weediestsection|
+  \item Subsections: \verb|\weedysubsection|, \verb|\weediersubsection|, and \verb|\weediestsubsection|
+  \item Topics: \verb|\weedyspecial|, \verb|\weedierspecial|, and \verb|\weediestspecial|
+\end{itemize}
+
 
 \weedsection[1]{Slightly Tangential Topic}
 

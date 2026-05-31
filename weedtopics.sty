@@ -115,25 +115,25 @@
 % LyX-friendly one-argument wrappers. LyX layout/module styles are easier to
 % map to commands of the form \command{Title} than to commands with optional
 % arguments such as \weedsection[2]{Title}.
-\NewDocumentCommand{\slightlyweedsection}{m}{\weedsection[1]{#1}}
+\NewDocumentCommand{\weedysection}{m}{\weedsection[1]{#1}}
 \NewDocumentCommand{\weediersection}{m}{\weedsection[2]{#1}}
-\NewDocumentCommand{\deepweedsection}{m}{\weedsection[3]{#1}}
+\NewDocumentCommand{\weediestsection}{m}{\weedsection[3]{#1}}
 
-\NewDocumentCommand{\slightlyweedsubsection}{m}{\weedsubsection[1]{#1}}
+\NewDocumentCommand{\weedysubsection}{m}{\weedsubsection[1]{#1}}
 \NewDocumentCommand{\weediersubsection}{m}{\weedsubsection[2]{#1}}
-\NewDocumentCommand{\deepweedsubsection}{m}{\weedsubsection[3]{#1}}
+\NewDocumentCommand{\weediestsubsection}{m}{\weedsubsection[3]{#1}}
 
-\NewDocumentCommand{\slightlyweedchapter}{m}{\weedchapter[1]{#1}}
+\NewDocumentCommand{\weedychapter}{m}{\weedchapter[1]{#1}}
 \NewDocumentCommand{\weedierchapter}{m}{\weedchapter[2]{#1}}
-\NewDocumentCommand{\deepweedchapter}{m}{\weedchapter[3]{#1}}
+\NewDocumentCommand{\weediestchapter}{m}{\weedchapter[3]{#1}}
 
 % Inline/block-style callout for special topics that are not full headings.
 \NewDocumentCommand{\weedspecial}{O{1} m}{%
   \par\smallskip\noindent\weedmark[#1]{#2}\textbf{#2}\par\smallskip
 }
-\NewDocumentCommand{\slightlyweedspecial}{m}{\weedspecial[1]{#1}}
+\NewDocumentCommand{\weedyspecial}{m}{\weedspecial[1]{#1}}
 \NewDocumentCommand{\weedierspecial}{m}{\weedspecial[2]{#1}}
-\NewDocumentCommand{\deepweedspecial}{m}{\weedspecial[3]{#1}}
+\NewDocumentCommand{\weediestspecial}{m}{\weedspecial[3]{#1}}
 % LyX helper: command-style layouts usually pass one argument, so this
 % wrapper ignores that argument and prints the index.
 \NewDocumentCommand{\weedprintindex}{m}{\printindex}

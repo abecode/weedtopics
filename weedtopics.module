@@ -11,7 +11,7 @@ Style Weedy_Chapter
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             slightlyweedchapter
+  LatexName             weedychapter
   LabelType             Static
   LabelString           "Weedy Chapter"
   KeepEmpty             0
@@ -39,7 +39,7 @@ Style Weediest_Chapter
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             deepweedchapter
+  LatexName             weediestchapter
   LabelType             Static
   LabelString           "Weediest Chapter"
   KeepEmpty             0
@@ -53,7 +53,7 @@ Style Weedy_Section
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             slightlyweedsection
+  LatexName             weedysection
   LabelType             Static
   LabelString           "Weedy Section"
   KeepEmpty             0
@@ -81,7 +81,7 @@ Style Weediest_Section
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             deepweedsection
+  LatexName             weediestsection
   LabelType             Static
   LabelString           "Weediest Section"
   KeepEmpty             0
@@ -95,7 +95,7 @@ Style Weedy_Subsection
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             slightlyweedsubsection
+  LatexName             weedysubsection
   LabelType             Static
   LabelString           "Weedy Subsection"
   KeepEmpty             0
@@ -123,7 +123,7 @@ Style Weediest_Subsection
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             deepweedsubsection
+  LatexName             weediestsubsection
   LabelType             Static
   LabelString           "Weediest Subsection"
   KeepEmpty             0
@@ -137,7 +137,7 @@ Style Weedy_Topic
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             slightlyweedspecial
+  LatexName             weedyspecial
   LabelType             Static
   LabelString           "Weedy Topic"
   KeepEmpty             0
@@ -163,7 +163,7 @@ Style Weediest_Topic
   Category              "Weed Topics"
   Margin                Dynamic
   LatexType             Command
-  LatexName             deepweedspecial
+  LatexName             weediestspecial
   LabelType             Static
   LabelString           "Weediest Topic"
   KeepEmpty             0
