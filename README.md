@@ -16,7 +16,7 @@ then to make a section, chapter, subsection or paragraph:
 \weedsection[3]{Title}  % level 3: esoteric
 \weedchapter ...    % chapter
 \weedsubsection ... % subsection
-\weedspecial[<level>]{<topic>}   % paragraph
+\weedspecial[<level>]{<topic>}   % topic heading
 ```
 
 # demo
