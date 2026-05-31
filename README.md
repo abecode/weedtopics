@@ -1,7 +1,7 @@
 # weedtopics
 a LaTeX style sheet to provide icons for when chapters/sections/etc are "in the weeds" aka on a tangent
 
-# installation
+# Installation
 
 Copy this file to the directory of your .tex document and then put this in the preamble:
 
@@ -19,9 +19,10 @@ then to make a section, chapter, subsection or paragraph:
 \weedspecial[<level>]{<topic>}   % topic heading
 ```
 
-# demo
+# Demo
 
-You only really need the .sty file, but the main.tex file gives an example of the usage of this .sty file
+You only really need the .sty file, but the main.tex file gives an example of the usage of this .sty file.  
+Here's the [output pdf](https://github.com/abecode/weedtopics/blob/main/main.pdf)
 
 # LyX
 
